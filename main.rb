@@ -10,6 +10,7 @@ if api_key.nil?
   puts "API key is not set. Command must be: export ABUSEIPDB_KEY=yourkey"
   exit
 end
+# Sends request to AbuseIPDB API
 uri = URI("https://api.abuseipdb.com/api/v2/check")
 uri.query = URI.encode_www_form({"ipAddress" => ip , "maxAgeInDays" => 90})
 request = Net::HTTP::Get.new(uri)
